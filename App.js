@@ -1,28 +1,27 @@
-/* <div>
-    <div>
-        <h1>I am an H1 tag</h1>
-        <h2>I am an H2 tag</h2>
-    </div>
-</div> 
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-ReactElement(object)=>html(browser understands)
+// ReactElement using createElement
+// ReactElement => object => HTMLELement(render)
+const heading = React.createElement(
+  "h1",
+  { id: "heading" },
+  "React js Element using createElement !!!!!"
+);
 
-*/
+/*in this way it is very difficult to create complex html structure the react code will be not proper readable
+ to overcome this react JSX comes into picture */
 
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "I am an h1 tag"),
-    React.createElement("h2", {}, "I am an h2 tag"),
-  ]),
-  ,
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "I am an h1 tag"),
-    React.createElement("h2", {}, "I am an h2 tag"),
-  ]),
-]);
-
-console.log(parent); //object
+//jsx
+const jsxHeading = <h1 className="jsxHeading">React using JSX</h1>;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(parent);
+// root.render(heading);
+root.render(jsxHeading);
+
+// jsx(transpiled before it reached to js) - parcel - Babel
+// jsx => balel transplied it to React.createElement => ReactElement -js object => HTMLElement(render)
+// jsx example
+// const jsxfooter = <h1 id="heading"> Hello React using jsx !!!!!!</h1>;
+// console.log(jsxfooter);
