@@ -4,7 +4,7 @@
   "description": "This is learning react by rutuja",
   "scripts": {
     "start": "parcel index.html",
-    "build":"parcel build index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -23,7 +23,9 @@
     "process": "^0.11.10"
   },
   "dependencies": {
+    "babel-plugin-macros": "^3.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1"
   }
 }
