@@ -1,47 +1,60 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//jsx React functional componemt
-// react functional component is a normal js fun which return a jsx code
-const HeadingComponent = () => (
-  <h1 className="heading">React functional component1</h1>
+/* Assignment 3
+
+Create a Nested header Element using React.createElement(h1,h2,h3 inside a
+div with class “title”)
+○ Create the same element using JSX
+○ Create a functional component of the same with JSX
+○ Pass attributes into the tag in JSX
+○ Composition of Component(Add a component inside another)
+○ {TitleComponent} vs {<TitleComponent/>} vs
+{<TitleComponent></TitleComponent>} in JSX
+*/
+
+// Element using React.createElement
+const head = React.createElement("div", { class: "title" }, [
+  React.createElement(
+    "h1",
+    { id: "h1Ele" },
+    React.createElement(
+      "h2",
+      { id: "h2Ele" },
+      React.createElement("h3", { id: "h3ele" }, "React createElements")
+    )
+  ),
+]);
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(head);
+
+// same element using JSX
+const jsxHead = (
+  <div className="title">
+    <h1 className="h1" tabIndex="2">
+      JSX h1 Element
+    </h1>
+    <h2 className="h2" tabIndex="2">
+      JSX h2 Element
+    </h2>
+    <h3 className="h3"> JSX h3 Element</h3>
+  </div>
 );
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(jsxHead);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeadingComponent />);
+// React functional component
+const Title = () => <h1 id="title">React functional component</h1>;
 
-//component composition  - > to render a component into another component
-const HeadingComponent1 = () => (
+// composition component
+const Heading = () => (
   <div id="container">
     <Title />
     <Title></Title>
-    {Title}
-    <h1 className="heading">React functional component2</h1>
-  </div>
-);
-root.render(<HeadingComponent1 />);
-
-// if i have to render title in the heading component
-const Title = () => (
-  <div id="container">
-    <h1 className="title">React functional component for composition </h1>
+    {/* {Title} */}
+    <h1 className="">React composition component</h1>
   </div>
 );
 
-//javaScript inside jsx()
-const number = 1000;
-const JsInsideJsx = () => (
-  <div className="jsjsx">
-    <h2>{100 + 200}</h2>
-    <h1>{number}</h1>
-    {number}
-  </div>
-);
-
-//react element inside component
-const title = <h1>React element</h1>;
-const Header = () => (
-  <div id="container">
-    <h1>react jsx componrnt </h1>
-  </div>
-);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Heading />);
